@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/* Importando fonte local */
+@font-face {
+  font-family: "idroid";
+  src: url(fontes/idroid.otf) format("opentype");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/* Criando variáveis */
+:root {
+  --cor0: #c5ebd6;
+  --cor1: #83e1ad;
+  --cor2: #3ddc84;
+  --cor3: #2fa866;
+  --cor4: #1a5c37;
+  --cor5: #063d1e;
+
+  --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+  --fonte-destaque: "Bebas Neue", sans-serif;
+  --fonte-android: "idroid", sans-serif;
+}
+
+/* Retirando todas as margens e paddings */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: var(--cor0);
+  font-family: var(--fonte-padrao);
+}
+
+header {
+  background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+  /* A sua altura mínima será de 150px */
+  min-height: 150px;
+  /* Para centralizar o texto */
+  text-align: center;
+  padding-top: 30px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.315);
+}
+
+header > h1 {
+  color: white;
+  font-family: var(--fonte-destaque);
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+header > p {
+  font-family: var(--fonte-padrao);
+  font-size: 1.2em;
+  color: white;
+  /* O tamanho máximo que irá ocupar, após atingir este tamanho irá quebrar linha */
+  max-width: 500px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+nav {
+  background-color: var(--cor5);
+  padding: 10px;
+  box-shadow: 0px 7px 7px (rgba(0, 0, 0, 0.192));
+}
+
+nav > a {
+  color: var(--cor1);
+  padding: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  /* Animação de transição */
+  transition-duration: 0.3s;
+}
+
+nav > a:hover {
+  background-color: var(--cor3);
+  color: var(--cor5);
+  border-radius: 5px;
+}
+
+main {
+  background-color: white;
+  /* Quando chega em 250px (importante considerar outras medidas além do conteúdo) ele para de encolher */
+  min-width: 250px;
+  /* Quando chega em 1000px ele para de crescer */
+  max-width: 1000px;
+  /* Para ficar centralizado */
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.308);
+  margin-bottom: 30px;
+  /* Arrendondamento apenas nas bordas inferiores */
+  border-radius: 0px 0px 10px 10px;
+}
+
+main p {
+  margin: 15px 0px 15px 0px;
+  text-align: justify;
+  text-indent: 20px;
+  /* Espaçamento entre linhas */
+  line-height: 2em;
+  font-size: 1em;
+}
+
+main a {
+  text-decoration: none;
+  font-weight: bold;
+  background-color: var(--cor1);
+  color: var(--cor4);
+  padding: 2px 6px;
+}
+
+main a:hover {
+  text-decoration: underline;
+  color: var(--cor4);
+}
+
+main strong {
+  color: var(--cor4);
+  font-weight: bold;
+}
+
+main img {
+  /* Isso vai fazer com que as imagens se espremam e se adaptem à largura da caixa main */
+  width: 100%;
+}
+
+main img.pequena {
+  /* Se a imagem crescer acima de 350px começa a ficar embaçada, então configuramos o tamanho máximo dela de 350px para ela não esticar mais que isso. */
+  max-width: 350px;
+  /* Nesta parte, transforma a imagem de display inline para block para que possa centralizá-la dentro da main utilizando a propriedade margin: auto. Importante lembrar que essa propriedade funciona apenas com caixas block. */
+  display: block;
+  margin: auto;
+}
+
+div.video {
+  background-color: var(--cor5);
+  margin: 0px -20px 30px -20px;
+  padding: 10px;
+  padding-bottom: 57.4%;
+  position: relative;
+}
+
+div.video > iframe {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+}
+
+main h1 {
+  font-family: var(--fonte-android);
+  color: var(--cor5);
+  font-weight: normal;
+  font-size: 1.8em;
+}
+
+main h2 {
+  font-family: var(--fonte-android);
+  color: var(--cor4);
+  font-size: 1.3em;
+  background-image: linear-gradient(to right, var(--cor1), transparent);
+  text-indent: 8px;
+  border-radius: 5px;
+  font-weight: normal;
+}
+
+aside {
+  background-color: var(--cor1);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+aside > h3 {
+  background-color: var(--cor4);
+  color: white;
+  padding: 10px;
+  /* Essa configuração negativa da margem é para o h3 ocupar o espaço da caixa aside, de forma que ele irá encostar nas bordas dele */
+  margin: -10px -10px 0px -10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul {
+  /* Colocou um emoji com esse código, o 00A0 é o código de espaço. Isso não é compatível com todos os navegadores */
+  list-style-type: "\2714\00A0\00A0";
+  /* O normal é outside, as bolinhas do lado de fora. Com esta configuração as bolinhas ficam dentro da caixa aside*/
+  list-style-position: inside;
+  /* Deixa a lista formatada com duas colunas */
+  columns: 2;
+}
+
+footer {
+  background-color: var(--cor5);
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 5px;
+}
+
+footer > p > a {
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+}
